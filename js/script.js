@@ -13,11 +13,40 @@ generateTicket.addEventListener('click',
    var nameUser = document.getElementById("name").value;
    console.log(nameUser);
    // distanza in km
-   var kmDistance = document.getElementById("km").value;
-   console.log(kmDistance);
+   var numberKm = document.getElementById("km").value;
+   console.log(numberKm);
    // eta dell'utente
    var age = document.getElementById("age-range").value;
    console.log(age);
 
+
+
+
+   // il prezzo del biglietto è definito in base ai km (0.21 € al km);
+   var ticketPricePerKm = 0.21;
+
+   var ticketPrice = (numberKm * ticketPricePerKm);
+   ticketPrice = ticketPrice.toFixed(2);
+   console.log("Il prezzo senza sconto è di: " + ticketPrice);
+
+   var ticketPriceDiscount;
+
+   if (isNaN(numberKm)) {
+     alert("Ha inserito del testo non supportato, riprovare di nuovo");
+   } else {
+     if (age == "minorenne") {
+       // va applicato uno sconto del 20% per i minorenni;
+       ticketPriceDiscount = ticketPrice - ((ticketPrice * 20) / 100);
+       ticketPriceDiscount = ticketPriceDiscount.toFixed(2);
+       console.log("Il prezzo scontato é: " + ticketPriceDiscount);
+     } else if (age == "over65") {
+       // va applicato uno sconto del 40% per gli over 65.
+       ticketPriceDiscount = ticketPrice - ((ticketPrice * 40) / 100);
+       ticketPriceDiscount = ticketPriceDiscount.toFixed(2);
+       console.log("Il prezzo scontato é: " + ticketPriceDiscount);
+     } else {
+       ticketPriceDiscount = ticketPrice;
+     }
+   }
  }
 );
