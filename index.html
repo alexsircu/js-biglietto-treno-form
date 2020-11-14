@@ -7,33 +7,67 @@
     <title></title>
   </head>
   <body>
-    <div class="">
-      <input id="name" type="text" name="" value="" placeholder="Inserisci nome e cognome">
+    <div id="container">
+      <h2>Calcola il prezzo del tuo biglietto</h2>
+      <!-- dati per creare bilietto -->
+      <div id="creating-ticket">
+        <div id="creating-ticket-top">
+          <div class="">
+            <h4>Nome Cognome</h4>
+            <input id="name" type="text" name="" value="" placeholder="Inserisci nome e cognome">
+          </div>
 
-      <input id="km" type="number" name="" value="" placeholder="Inserisci il numero di km">
+          <div class="km-container">
+            <h4>Km da percorrere</h4>
+            <input id="km" type="number" name="" value="" placeholder="Inserisci il numero di km">
+          </div>
 
-      <select id="age-range"class="" name="">
-        <option value="minorenne">Minorenne</option>
-        <option value="maggiorenne">Maggiorenne</option>
-        <option value="over65">Over 65</option>
-      </select>
+          <div class="">
+            <h4>Fascia d'età</h4>
+            <select id="age-range"class="" name="">
+              <option value="minorenne">Minorenne</option>
+              <option value="maggiorenne">Maggiorenne</option>
+              <option value="over65">Over 65</option>
+            </select>
+          </div>
+        </div>
 
-      <button id="generate" type="button" name="button">Genera</button>
-      <button id="delete" type="button" name="button">Annulla</button>
+        <div id="creating-ticket-bottom">
+          <button id="generate" type="button" name="button">Genera</button>
+          <button id="delete" type="button" name="button">Annulla</button>
+        </div>
+      </div>
+      <!-- biglietto creato  -->
+      <h2 id="title-ticket-ready" class="hidden">Il tuo biglietto</h2>
+      <div id="ticket-ready" class="hidden">
+        <h3>Dettaglio Passeggeri</h3>
+        <div id="big-container">
+          <div id="name-user-container">
+            <p>Nome Passeggero:</p>
+            <p id="user-name" class="info"></p>
+          </div>
+
+          <div id="user-informations">
+            <div class="user-infomations-container">
+              <p>Offerta:</p>
+              <p id="deal" class="info"></p>
+            </div>
+            <div class="user-infomations-container">
+              <p>Carrozza:</p>
+              <p id="carriage-number" class="info"></p>
+            </div>
+            <div class="user-infomations-container">
+              <p>Codice CP:</p>
+              <p id="trainCode" class="info"></p>
+            </div>
+            <div class="user-infomations-container">
+              <p>Costo biglietto:</p>
+              <p class="info"><span id="price-ticket"></span> €</p>
+            </div>
+        </div>
+      </div>
+      </div>
     </div>
-
-    <div class="">
-      <p>Nome Passeggero</p>
-      <p>Offerta</p>
-      <p id="carriage-number">Carrozza: </p>
-      <p id="trainCode">Codice CP: </p>
-      <p id="price-ticket">Costo biglietto: </p>
-
-    </div>
-
-
-
-
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

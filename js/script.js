@@ -12,6 +12,7 @@ generateTicket.addEventListener('click',
  function() {
    var nameUser = document.getElementById("name").value;
    console.log(nameUser);
+   document.getElementById("user-name").innerHTML = nameUser;
    // distanza in km
    var numberKm = document.getElementById("km").value;
    console.log(numberKm);
@@ -25,7 +26,6 @@ generateTicket.addEventListener('click',
    ticketPrice = ticketPrice.toFixed(2);
    console.log("Il prezzo senza sconto è di: " + ticketPrice);
 
-
    var ticketPriceDiscount;
 
      if (age == "minorenne") {
@@ -33,25 +33,44 @@ generateTicket.addEventListener('click',
        ticketPriceDiscount = ticketPrice - ((ticketPrice * 20) / 100);
        ticketPriceDiscount = ticketPriceDiscount.toFixed(2);
        console.log("Il prezzo scontato é: " + ticketPriceDiscount);
-       document.getElementById("price-ticket").innerHTML += ticketPriceDiscount;
+       document.getElementById("price-ticket").innerHTML = ticketPriceDiscount;
+       document.getElementById("deal").innerHTML = "Sconto minorenne";
      } else if (age == "over65") {
        // va applicato uno sconto del 40% per gli over 65.
        ticketPriceDiscount = ticketPrice - ((ticketPrice * 40) / 100);
        ticketPriceDiscount = ticketPriceDiscount.toFixed(2);
        console.log("Il prezzo scontato é: " + ticketPriceDiscount);
-       document.getElementById("price-ticket").innerHTML += ticketPriceDiscount;
+       document.getElementById("price-ticket").innerHTML = ticketPriceDiscount;
+       document.getElementById("deal").innerHTML = "Sconto over 65";
      } else {
-        document.getElementById("price-ticket").innerHTML += ticketPrice;
+        document.getElementById("price-ticket").innerHTML = ticketPrice;
+        document.getElementById("deal").innerHTML = "Prezzo standard";
      }
 
    // Numero carrozza (numero casuale tra 1 e 9)
    var carriageNumber = Math.floor(Math.random() * 9) + 1;
    console.log(carriageNumber);
-   document.getElementById("carriage-number").innerHTML += carriageNumber;
+   document.getElementById("carriage-number").innerHTML = carriageNumber;
    // Codice treno (numero casuale tra 90000 e 100000 escluso)
    var trainCode = Math.floor(Math.random() *10000) + 90000;
    console.log(trainCode);
-   document.getElementById("trainCode").innerHTML += trainCode;
-
+   document.getElementById("trainCode").innerHTML = trainCode;
+   document.getElementById("ticket-ready").className = "show";
+   document.getElementById("title-ticket-ready").className = "show";
  }
+);
+
+var deleteTicket = document.getElementById("delete");
+deleteTicket.addEventListener('click', function() {
+  document.getElementById("name").value = "";
+  document.getElementById("km").value = "";
+  document.getElementById("age-range").value = "";
+  document.getElementById("user-name").innerHTML = "";
+  document.getElementById("deal").innerHTML = "";
+  document.getElementById("carriage-number").innerHTML = "";
+  document.getElementById("trainCode").innerHTML = "";
+  document.getElementById("price-ticket").innerHTML = "";
+  document.getElementById("ticket-ready").className = "hidden";
+  document.getElementById("title-ticket-ready").className = "hidden";
+}
 );
